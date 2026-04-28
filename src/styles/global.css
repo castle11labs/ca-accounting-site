@@ -10,8 +10,10 @@
   --color-charcoal: #2a2a2a;
   --color-charcoal-muted: #5a5a5a;
   --color-line: #e4ddd0;
-  --font-serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --font-serif: "Fraunces", "Source Serif 4", Georgia, serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --shadow-card: 0 1px 2px rgba(15, 30, 58, 0.04), 0 4px 16px rgba(15, 30, 58, 0.04);
+  --shadow-card-hover: 0 2px 4px rgba(15, 30, 58, 0.06), 0 12px 32px rgba(15, 30, 58, 0.08);
 }
 
 @layer base {
@@ -32,9 +34,15 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     color: var(--color-navy);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    font-variation-settings: "opsz" 144;
+  }
+
+  h3, h4, h5, h6 {
+    font-variation-settings: "opsz" 36;
+    font-weight: 500;
   }
 
   ::selection {
@@ -65,5 +73,62 @@
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .card-elevated {
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-modern {
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-modern:hover {
+    transform: translateY(-1px);
+  }
+
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(15, 30, 58, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 30, 58, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+  }
+
+  .editorial-number {
+    font-family: var(--font-serif);
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-forest);
+    line-height: 1;
   }
 }

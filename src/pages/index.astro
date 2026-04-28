@@ -7,14 +7,15 @@ import Base from '../layouts/Base.astro';
   description="An AICPA-member accounting firm in Glendale, CA. Led by a CPA and an Enrolled Agent. Specialists in entertainment, medical practice, and real estate accounting for over 20 years."
 >
   <!-- Hero -->
-  <section class="bg-cream-warm">
-    <div class="container-custom py-20 md:py-28">
+  <section class="bg-cream-warm relative overflow-hidden">
+    <div class="absolute inset-0 grid-bg opacity-60"></div>
+    <div class="container-custom py-20 md:py-28 relative">
       <div class="max-w-4xl">
         <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-6 fade-in">
           Glendale, California · Established Firm · Over 20 Years
         </p>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold text-navy leading-[1.05] mb-8 fade-in fade-in-delay-1">
-          A Glendale CPA firm built on twenty years of trust.
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-navy leading-[1.05] mb-8 fade-in fade-in-delay-1" style="font-variation-settings: 'opsz' 144;">
+          A Glendale CPA firm built on <em class="font-normal italic" style="font-variation-settings: 'opsz' 144;">twenty years</em> of trust.
         </h1>
         <p class="text-charcoal text-lg md:text-xl leading-relaxed max-w-2xl mb-10 fade-in fade-in-delay-2">
           AICPA-member firm. Led by a Certified Public Accountant and an Enrolled Agent. Specialists in entertainment, medical practice, and real estate accounting for clients across California and beyond.
@@ -22,13 +23,13 @@ import Base from '../layouts/Base.astro';
         <div class="flex flex-col sm:flex-row gap-4 fade-in fade-in-delay-3">
           <a
             href="/contact"
-            class="bg-forest text-cream font-semibold px-8 py-4 rounded text-center hover:bg-forest-hover transition-colors"
+            class="btn-modern bg-forest text-cream font-semibold px-8 py-4 rounded text-center hover:bg-forest-hover"
           >
             Schedule a Free Consultation
           </a>
           <a
             href="tel:8775009290"
-            class="border border-navy text-navy font-semibold px-8 py-4 rounded text-center hover:bg-navy hover:text-cream transition-colors"
+            class="btn-modern border border-navy text-navy font-semibold px-8 py-4 rounded text-center hover:bg-navy hover:text-cream"
           >
             Call 877.500.9290
           </a>
@@ -50,36 +51,45 @@ import Base from '../layouts/Base.astro';
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white border border-line rounded-lg p-8 fade-in">
-          <div class="w-12 h-1 bg-forest mb-6"></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-elevated bg-white rounded-xl p-8 fade-in">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="editorial-number text-3xl">01</span>
+            <div class="w-8 h-px bg-forest"></div>
+          </div>
           <h3 class="text-2xl font-serif text-navy mb-4">Tax & Planning</h3>
           <p class="text-charcoal-muted text-base leading-relaxed mb-6">
             Year-round tax strategy, return preparation, IRS representation, and multi-state filings for individuals, businesses, and trusts.
           </p>
-          <a href="/services#tax" class="text-forest font-semibold text-sm hover:text-forest-hover transition-colors">
+          <a href="/services#tax" class="link-underline text-forest font-semibold text-sm">
             Tax services →
           </a>
         </div>
 
-        <div class="bg-white border border-line rounded-lg p-8 fade-in fade-in-delay-1">
-          <div class="w-12 h-1 bg-forest mb-6"></div>
+        <div class="card-elevated bg-white rounded-xl p-8 fade-in fade-in-delay-1">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="editorial-number text-3xl">02</span>
+            <div class="w-8 h-px bg-forest"></div>
+          </div>
           <h3 class="text-2xl font-serif text-navy mb-4">Accounting & Bookkeeping</h3>
           <p class="text-charcoal-muted text-base leading-relaxed mb-6">
             Outsourced bookkeeping, payroll, financial statement preparation, and reviews — built for owners who'd rather run the business than the back office.
           </p>
-          <a href="/services#accounting" class="text-forest font-semibold text-sm hover:text-forest-hover transition-colors">
+          <a href="/services#accounting" class="link-underline text-forest font-semibold text-sm">
             Accounting services →
           </a>
         </div>
 
-        <div class="bg-white border border-line rounded-lg p-8 fade-in fade-in-delay-2">
-          <div class="w-12 h-1 bg-forest mb-6"></div>
+        <div class="card-elevated bg-white rounded-xl p-8 fade-in fade-in-delay-2">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="editorial-number text-3xl">03</span>
+            <div class="w-8 h-px bg-forest"></div>
+          </div>
           <h3 class="text-2xl font-serif text-navy mb-4">CFO & Advisory</h3>
           <p class="text-charcoal-muted text-base leading-relaxed mb-6">
             Outsourced CFO support, cash flow management, business valuations, and M&A advisory. The financial leadership of a senior hire, scaled to what your company actually needs.
           </p>
-          <a href="/services#cfo" class="text-forest font-semibold text-sm hover:text-forest-hover transition-colors">
+          <a href="/services#cfo" class="link-underline text-forest font-semibold text-sm">
             CFO services →
           </a>
         </div>
@@ -101,28 +111,40 @@ import Base from '../layouts/Base.astro';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/industries/entertainment" class="group bg-navy-deep border border-cream/10 rounded-lg p-8 hover:border-cream/30 transition-colors fade-in">
+        <a href="/industries/entertainment" class="group bg-navy-deep border border-cream/10 rounded-xl p-8 hover:border-cream/30 hover:-translate-y-1 transition-all duration-300 fade-in">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="editorial-number text-3xl text-cream/40">01</span>
+            <div class="w-8 h-px bg-cream/20 group-hover:bg-cream/60 transition-colors"></div>
+          </div>
           <h3 class="text-2xl font-serif text-cream mb-4">Entertainment</h3>
           <p class="text-cream/70 text-base leading-relaxed mb-6">
             Working musicians, actors, producers, directors, and the agencies behind them. Tour accounting, royalty tracking, residuals, loan-out structures, and IP valuation.
           </p>
-          <span class="text-cream/90 font-semibold text-sm">Learn more →</span>
+          <span class="link-underline text-cream/90 font-semibold text-sm">Learn more →</span>
         </a>
 
-        <a href="/industries/medical" class="group bg-navy-deep border border-cream/10 rounded-lg p-8 hover:border-cream/30 transition-colors fade-in fade-in-delay-1">
+        <a href="/industries/medical" class="group bg-navy-deep border border-cream/10 rounded-xl p-8 hover:border-cream/30 hover:-translate-y-1 transition-all duration-300 fade-in fade-in-delay-1">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="editorial-number text-3xl text-cream/40">02</span>
+            <div class="w-8 h-px bg-cream/20 group-hover:bg-cream/60 transition-colors"></div>
+          </div>
           <h3 class="text-2xl font-serif text-cream mb-4">Medical Practices</h3>
           <p class="text-cream/70 text-base leading-relaxed mb-6">
             Doctors, dentists, chiropractors, and veterinarians. Practice management, equipment depreciation, multi-entity structures, and physician retirement planning.
           </p>
-          <span class="text-cream/90 font-semibold text-sm">Learn more →</span>
+          <span class="link-underline text-cream/90 font-semibold text-sm">Learn more →</span>
         </a>
 
-        <a href="/industries/real-estate" class="group bg-navy-deep border border-cream/10 rounded-lg p-8 hover:border-cream/30 transition-colors fade-in fade-in-delay-2">
+        <a href="/industries/real-estate" class="group bg-navy-deep border border-cream/10 rounded-xl p-8 hover:border-cream/30 hover:-translate-y-1 transition-all duration-300 fade-in fade-in-delay-2">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="editorial-number text-3xl text-cream/40">03</span>
+            <div class="w-8 h-px bg-cream/20 group-hover:bg-cream/60 transition-colors"></div>
+          </div>
           <h3 class="text-2xl font-serif text-cream mb-4">Real Estate</h3>
           <p class="text-cream/70 text-base leading-relaxed mb-6">
             Property managers, developers, investors, brokers, and agents. Depreciation strategies, 1031 exchanges, multi-property bookkeeping, and K-1 handling.
           </p>
-          <span class="text-cream/90 font-semibold text-sm">Learn more →</span>
+          <span class="link-underline text-cream/90 font-semibold text-sm">Learn more →</span>
         </a>
       </div>
     </div>
@@ -145,22 +167,22 @@ import Base from '../layouts/Base.astro';
           </p>
         </div>
 
-        <div class="grid grid-cols-2 gap-6 fade-in fade-in-delay-1">
-          <div class="bg-cream-warm border border-line rounded-lg p-6">
-            <div class="text-4xl font-serif text-navy font-semibold mb-2">20+</div>
-            <p class="text-charcoal-muted text-sm">Years of practice</p>
+        <div class="grid grid-cols-2 gap-px bg-line border border-line rounded-xl overflow-hidden fade-in fade-in-delay-1">
+          <div class="bg-cream p-8">
+            <div class="text-5xl font-serif text-navy mb-2" style="font-variation-settings: 'opsz' 144;">20+</div>
+            <p class="text-charcoal-muted text-sm uppercase tracking-wider">Years of practice</p>
           </div>
-          <div class="bg-cream-warm border border-line rounded-lg p-6">
-            <div class="text-4xl font-serif text-navy font-semibold mb-2">11</div>
-            <p class="text-charcoal-muted text-sm">Team members</p>
+          <div class="bg-cream p-8">
+            <div class="text-5xl font-serif text-navy mb-2" style="font-variation-settings: 'opsz' 144;">11</div>
+            <p class="text-charcoal-muted text-sm uppercase tracking-wider">Team members</p>
           </div>
-          <div class="bg-cream-warm border border-line rounded-lg p-6">
-            <div class="text-4xl font-serif text-navy font-semibold mb-2">CPA</div>
-            <p class="text-charcoal-muted text-sm">Managing Partner credential</p>
+          <div class="bg-cream p-8">
+            <div class="text-5xl font-serif text-navy mb-2" style="font-variation-settings: 'opsz' 144;">CPA</div>
+            <p class="text-charcoal-muted text-sm uppercase tracking-wider">Managing Partner</p>
           </div>
-          <div class="bg-cream-warm border border-line rounded-lg p-6">
-            <div class="text-4xl font-serif text-navy font-semibold mb-2">EA</div>
-            <p class="text-charcoal-muted text-sm">Founding Partner credential</p>
+          <div class="bg-cream p-8">
+            <div class="text-5xl font-serif text-navy mb-2" style="font-variation-settings: 'opsz' 144;">EA</div>
+            <p class="text-charcoal-muted text-sm uppercase tracking-wider">Founding Partner</p>
           </div>
         </div>
       </div>
@@ -168,16 +190,18 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <!-- Featured testimonial -->
-  <section class="bg-cream-warm py-20 md:py-24">
+  <section class="bg-cream-warm py-20 md:py-28">
     <div class="container-custom">
-      <div class="max-w-4xl mx-auto fade-in">
-        <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-6 text-center">In Our Clients' Words</p>
-        <blockquote class="text-2xl md:text-3xl font-serif text-navy leading-snug mb-8 text-center">
-          "It's always a pleasure working with Rima, Narek and Farshid at CA Accounting. They're not only wonderful people but also exceptionally talented, precise, and driven in their work. I've worked with them across two different companies now and can confidently recommend them to anyone looking for reliable accounting and finance support."
+      <div class="max-w-4xl mx-auto fade-in relative">
+        <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-8 text-center">In Our Clients' Words</p>
+        <div class="text-forest/30 font-serif text-9xl leading-none mb-[-2rem] text-center select-none" style="font-variation-settings: 'opsz' 144;" aria-hidden="true">"</div>
+        <blockquote class="text-2xl md:text-3xl font-serif text-navy leading-snug mb-10 text-center" style="font-variation-settings: 'opsz' 72;">
+          It's always a pleasure working with Rima, Narek and Farshid at CA Accounting. They're not only wonderful people but also exceptionally talented, precise, and driven in their work. I've worked with them across two different companies now and can confidently recommend them to anyone looking for reliable accounting and finance support.
         </blockquote>
         <div class="text-center">
+          <div class="w-12 h-px bg-forest mx-auto mb-4"></div>
           <p class="text-charcoal font-semibold">J. Sider</p>
-          <p class="text-charcoal-muted text-sm">Google Review · 5 stars</p>
+          <p class="text-charcoal-muted text-sm">Google Review · ★★★★★</p>
         </div>
       </div>
     </div>
@@ -227,13 +251,13 @@ import Base from '../layouts/Base.astro';
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/contact"
-            class="bg-forest text-cream font-semibold px-8 py-4 rounded hover:bg-forest-hover transition-colors"
+            class="btn-modern bg-forest text-cream font-semibold px-8 py-4 rounded hover:bg-forest-hover"
           >
             Schedule a Free Consultation
           </a>
           <a
             href="tel:8775009290"
-            class="border border-cream/40 text-cream font-semibold px-8 py-4 rounded hover:bg-cream/10 transition-colors"
+            class="btn-modern border border-cream/40 text-cream font-semibold px-8 py-4 rounded hover:bg-cream/10"
           >
             Call 877.500.9290
           </a>
