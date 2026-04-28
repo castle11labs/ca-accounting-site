@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+
+const namedTestimonials = [
+  {
+    quote: "Farshid and all his team have been instrumental in strengthening our financial understanding.",
+    name: "Dave Mason",
+    title: "Musician",
+  },
+  {
+    quote: "We consider Farshid and the entire CA Accounting staff family now, and wouldn't know what to do without them.",
+    name: "Octavius & Jamal Terry-Sims",
+    title: "Fashion designer & choreographer / director",
+  },
+  {
+    quote: "Farshid is an absolute wizard of accounting and has saved me many a precious dollar.",
+    name: "David Norton",
+    title: "President, Ladder Up Media",
+  },
+  {
+    quote: "Every time I visit with Farshid I learn more and walk away with a new business strategy.",
+    name: "Joella Hopkins, CSEP, CMP, MBA",
+    title: "Mumtaz Marketing & Events · Founder, LGBTwed",
+  },
+  {
+    quote: "His counsel is invaluable. What I value most about Farshid is his unimpeachable integrity.",
+    name: "Joe Cangelosi",
+    title: "Client",
+  },
+  {
+    quote: "My books are where I need them to be and using my numbers to guide me is easier.",
+    name: "Carey Peters",
+    title: "Co-Founder, The Health Coach Institute & HolisticMBA",
+  },
+  {
+    quote: "Trust is pre-eminent in any lasting and fulfilling relationship — and you've forged this bond of trust.",
+    name: "Jay Miller",
+    title: "Client",
+  },
+  {
+    quote: "Not only did they save me invaluable time and money, but their knowledge and professionalism saved me headaches.",
+    name: "Patrick Sullivan",
+    title: "Client",
+  },
+];
+
+const googleReviews = [
+  {
+    quote: "It's always a pleasure working with Rima, Narek and Farshid at CA Accounting. They're not only wonderful people but also exceptionally talented, precise, and driven in their work. I've worked with them across two different companies now and can confidently recommend them to anyone looking for reliable accounting and finance support.",
+    name: "J. Sider",
+    source: "Google · 5 stars",
+  },
+  {
+    quote: "Couldn't be happier with the service at CA Accounting. Farshid, Lucy and the whole team. Very attentive to details and most important — knowledgeable. I highly recommend them.",
+    name: "Ernie Fregozo",
+    source: "Google Local Guide · 5 stars",
+  },
+  {
+    quote: "The accounting team is trustworthy and reliable. They make it easy to work with and are great partners for entrepreneurs like me.",
+    name: "Melva Benoit",
+    source: "Google · 5 stars · The Marian Dupree Group",
+  },
+  {
+    quote: "Farshid and Sarah and their staff have always been very professional and helpful.",
+    name: "Jay Miller",
+    source: "Google · 5 stars",
+  },
+  {
+    quote: "Farshid and his team really put in the work for our multiple, multi-state returns.",
+    name: "Jean-Marc Cloutier",
+    source: "Google · 5 stars",
+  },
+];
+---
+
+<Base
+  title="Client Testimonials — CA Accounting | What Our Clients Say"
+  description="Read what CA Accounting's clients say about working with us — entertainment professionals, business owners, and entrepreneurs who've trusted the firm for years."
+>
+  <section class="bg-cream-warm py-20 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-6 fade-in">Testimonials</p>
+        <h1 class="text-5xl md:text-6xl font-serif text-navy leading-tight mb-6 fade-in fade-in-delay-1" style="font-variation-settings: 'opsz' 144;">
+          What our clients say.
+        </h1>
+        <p class="text-charcoal text-lg leading-relaxed fade-in fade-in-delay-2">
+          The firm's longest client relationships measure in decades. Below are some of the people we've had the privilege to work with — in their own words.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Named testimonials -->
+  <section class="py-20 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mb-16 fade-in">
+        <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-4">From Our Clients</p>
+        <h2 class="text-3xl md:text-4xl font-serif text-navy">In their own words.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {namedTestimonials.map((t, i) => (
+          <div class="card-elevated bg-white rounded-xl p-8 fade-in" style={`transition-delay: ${(i % 2) * 0.1}s`}>
+            <div class="text-forest/30 font-serif text-6xl leading-none mb-2 select-none" aria-hidden="true" style="font-variation-settings: 'opsz' 144;">"</div>
+            <blockquote class="text-charcoal text-lg leading-relaxed mb-6 font-serif" style="font-variation-settings: 'opsz' 36;">
+              {t.quote}
+            </blockquote>
+            <div class="border-t border-line pt-4">
+              <p class="text-navy font-semibold text-sm">{t.name}</p>
+              <p class="text-charcoal-muted text-sm">{t.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Google reviews -->
+  <section class="bg-cream-warm py-20 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mb-16 fade-in">
+        <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-4">Google Reviews</p>
+        <h2 class="text-3xl md:text-4xl font-serif text-navy">Five-star reviews on Google.</h2>
+      </div>
+
+      <div class="space-y-6">
+        {googleReviews.map((r, i) => (
+          <div class="bg-white border border-line rounded-xl p-8 fade-in" style={`transition-delay: ${(i % 3) * 0.1}s`}>
+            <p class="text-forest text-sm font-semibold mb-3">★★★★★</p>
+            <blockquote class="text-charcoal text-base leading-relaxed mb-4">
+              "{r.quote}"
+            </blockquote>
+            <p class="text-navy font-semibold text-sm">{r.name}</p>
+            <p class="text-charcoal-muted text-xs">{r.source}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy text-cream py-20 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-serif text-cream mb-6">
+          Ready to add your name to the list?
+        </h2>
+        <p class="text-cream/80 text-lg leading-relaxed mb-10">
+          The first conversation is free. We'll listen, look at your situation, and tell you whether we can help.
+        </p>
+        <a
+          href="/contact"
+          class="btn-modern inline-block bg-forest text-cream font-semibold px-10 py-4 rounded hover:bg-forest-hover"
+        >
+          Schedule a Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -14,6 +14,7 @@
     { "source": "/industries-we-serve.htm", "destination": "/industries", "permanent": true },
     { "source": "/entertainment-accounting.htm", "destination": "/industries/entertainment", "permanent": true },
     { "source": "/medical-practice-accounting.htm", "destination": "/industries/medical", "permanent": true },
-    { "source": "/real-estate-accounting-services.htm", "destination": "/industries/real-estate", "permanent": true }
+    { "source": "/real-estate-accounting-services.htm", "destination": "/industries/real-estate", "permanent": true },
+    { "source": "/client-testimonials.htm", "destination": "/testimonials", "permanent": true }
   ]
 }
