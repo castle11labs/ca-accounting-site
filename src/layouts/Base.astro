@@ -1,0 +1,237 @@
+---
+import { SEO } from 'astro-seo';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+
+const { title, description, canonical } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/services', label: 'Services' },
+  { href: '/industries', label: 'Industries' },
+  { href: '/about', label: 'About' },
+  { href: '/team', label: 'Team' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(href + '/');
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
+      rel="stylesheet"
+    />
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical || Astro.url.href}
+      openGraph={{
+        basic: {
+          title: title,
+          type: 'website',
+          image: 'https://www.caaccounting.com/og-image.jpg',
+        },
+        optional: {
+          description: description,
+          siteName: 'CA Accounting',
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title: title,
+        description: description,
+      }}
+      extend={{
+        meta: [
+          { name: 'theme-color', content: '#0f1e3a' },
+          { name: 'author', content: 'CA Accounting' },
+        ],
+      }}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Top bar -->
+    <div class="bg-navy text-cream text-sm">
+      <div class="container-custom py-2 flex flex-col sm:flex-row gap-1 sm:gap-6 items-center justify-center sm:justify-between">
+        <p class="text-cream/80">300 W Glenoaks Blvd, Suite 101 · Glendale, CA 91202</p>
+        <div class="flex gap-4 items-center">
+          <span class="text-cream/80">Hours: 9–6, Mon–Fri</span>
+          <a href="tel:8775009290" class="text-cream font-medium hover:text-cream/80 transition-colors">877.500.9290</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-line">
+      <div class="container-custom py-4 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="/images/logo.png" alt="CA Accounting" class="h-10 w-auto" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'text-sm font-medium transition-colors',
+                isActive(link.href)
+                  ? 'text-forest'
+                  : 'text-charcoal hover:text-navy',
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="/contact"
+            class="text-sm font-semibold bg-forest text-cream px-5 py-2.5 rounded hover:bg-forest-hover transition-colors"
+          >
+            Free Consultation
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-navy p-2" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-line bg-cream">
+        <div class="container-custom py-4 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'text-base font-medium transition-colors',
+                isActive(link.href) ? 'text-forest' : 'text-charcoal',
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="/contact"
+            class="text-base font-semibold bg-forest text-cream px-5 py-3 rounded text-center hover:bg-forest-hover transition-colors"
+          >
+            Free Consultation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-cream/90 mt-24">
+      <div class="container-custom py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div class="md:col-span-2">
+            <h3 class="text-cream font-serif text-2xl mb-4">CA Accounting</h3>
+            <p class="text-cream/70 text-sm leading-relaxed max-w-md mb-6">
+              An AICPA-member accounting firm based in Glendale, California. Serving entrepreneurs, professionals, and growing businesses for over 20 years.
+            </p>
+            <div class="flex items-center gap-3">
+              <img src="/images/aicpa.png" alt="AICPA Member" class="h-12 w-auto bg-cream rounded p-1" />
+              <span class="text-cream/60 text-xs">AICPA Member Firm</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-4">Pages</h4>
+            <div class="flex flex-col gap-2.5">
+              <a href="/" class="text-cream/70 text-sm hover:text-cream transition-colors">Home</a>
+              {navLinks.map((link) => (
+                <a href={link.href} class="text-cream/70 text-sm hover:text-cream transition-colors">{link.label}</a>
+              ))}
+              <a href="/privacy" class="text-cream/70 text-sm hover:text-cream transition-colors">Privacy</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-4">Contact</h4>
+            <div class="flex flex-col gap-2.5 text-cream/70 text-sm">
+              <a href="tel:8775009290" class="hover:text-cream transition-colors">877.500.9290</a>
+              <p>300 W Glenoaks Blvd<br />Suite 101<br />Glendale, CA 91202</p>
+              <p class="text-cream/50 text-xs mt-2">Mon–Fri, 9 AM – 6 PM</p>
+            </div>
+            <div class="mt-6 flex flex-col gap-2">
+              <a href="https://protectedxchange.com" target="_blank" rel="noopener" class="text-cream/70 text-xs hover:text-cream transition-colors">
+                → Send a Secure File
+              </a>
+              <a href="https://portal.bizpayo.com" target="_blank" rel="noopener" class="text-cream/70 text-xs hover:text-cream transition-colors">
+                → Make a Payment
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-cream/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between gap-4">
+          <p class="text-cream/50 text-xs">
+            &copy; {new Date().getFullYear()} CA Accounting. All rights reserved.
+          </p>
+          <p class="text-cream/50 text-xs">
+            AICPA-member firm · Glendale, CA
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      let open = false;
+
+      btn?.addEventListener('click', () => {
+        open = !open;
+        menu?.classList.toggle('hidden');
+        if (icon) {
+          icon.setAttribute(
+            'd',
+            open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'
+          );
+        }
+      });
+    </script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

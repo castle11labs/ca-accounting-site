@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+
+const team = [
+  {
+    name: 'Farshid Khosravi',
+    credentials: 'EA',
+    title: 'Founding Partner',
+    photo: '/images/team/farshid.jpg',
+    bio: "Farshid founded CA Accounting and holds the Enrolled Agent designation — the IRS's highest credential for tax practitioners. He leads the firm's tax planning and IRS representation work and is the partner most clients first work with.",
+    featured: true,
+  },
+  {
+    name: 'Narek Mkhitaryan',
+    credentials: 'CPA',
+    title: 'Managing Partner',
+    photo: '/images/team/narek.jpg',
+    bio: "Narek is a Certified Public Accountant and the firm's Managing Partner. He oversees attest, advisory, and outsourced CFO engagements, and leads the firm's medical and real estate work.",
+    featured: true,
+  },
+  {
+    name: 'Shirin Nosrat',
+    credentials: '',
+    title: 'Client Services',
+    photo: '/images/team/shirin.jpg',
+    bio: "Shirin supports clients across the firm's accounting and tax engagements, with a focus on responsiveness, accuracy, and helping business owners stay informed about their numbers.",
+  },
+  {
+    name: 'Tess Bidwell',
+    credentials: '',
+    title: 'Accounting Team',
+    photo: '/images/team/tess.jpg',
+    bio: "Tess works on the firm's bookkeeping and financial reporting engagements, helping clients keep clean books and ready-to-file year-end records.",
+  },
+  {
+    name: 'Megan Foroodi',
+    credentials: '',
+    title: 'Client Services',
+    photo: '/images/team/megan.jpg',
+    bio: "Megan supports clients across tax preparation and bookkeeping, with an emphasis on clear communication and timely turnaround.",
+  },
+  {
+    name: 'Aileen May Hoffman',
+    credentials: '',
+    title: 'Accounting Team',
+    photo: '/images/team/aileen.jpg',
+    bio: "Aileen works on the firm's monthly bookkeeping and payroll engagements, ensuring transactions are coded correctly and reports are issued on time.",
+  },
+  {
+    name: 'Nara Khachatryan',
+    credentials: '',
+    title: 'Tax Team',
+    photo: '/images/team/nara.jpg',
+    bio: "Nara works on the firm's individual and business tax preparation, with a focus on accurate filings and identifying planning opportunities for clients.",
+  },
+  {
+    name: 'Sara Khosravi',
+    credentials: '',
+    title: 'Client Services',
+    photo: '/images/team/sara.jpg',
+    bio: "Sara is part of the client services team, helping coordinate engagements and supporting clients throughout the year — not just at filing season.",
+  },
+  {
+    name: 'Florence Magaoay-Estigoy',
+    credentials: '',
+    title: 'Accounting Team',
+    photo: '/images/team/flo.jpg',
+    bio: "Florence works on the firm's bookkeeping and financial statement engagements, with a focus on accurate reconciliations and clean monthly closes.",
+  },
+  {
+    name: 'Lusine Muradyan',
+    credentials: '',
+    title: 'Client Services',
+    photo: '/images/team/lusine.jpg',
+    bio: "Lusine supports the firm's client engagements across accounting and tax, helping ensure deliverables are accurate, timely, and well-organized.",
+  },
+  {
+    name: 'Loreta Sarian',
+    credentials: '',
+    title: 'Accounting Team',
+    photo: null,
+    bio: "Loreta works on the firm's bookkeeping and accounting engagements, supporting clients with day-to-day financial recordkeeping and reporting.",
+  },
+  {
+    name: 'Rima Aghazarian',
+    credentials: '',
+    title: 'Tax Team',
+    photo: null,
+    bio: "Rima works on the firm's tax engagements, with attention to compliance accuracy and helping clients understand their filings.",
+  },
+];
+
+const initials = (name: string) => name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
+---
+
+<Base
+  title="Our Team — CA Accounting | Glendale CPA Firm"
+  description="Meet the team behind CA Accounting — eleven professionals across tax, accounting, and advisory, led by Founding Partner Farshid Khosravi, EA, and Managing Partner Narek Mkhitaryan, CPA."
+>
+  <section class="bg-cream-warm py-20 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-6 fade-in">Our Team</p>
+        <h1 class="text-5xl md:text-6xl font-serif text-navy leading-tight mb-6 fade-in fade-in-delay-1">
+          The same people, year after year.
+        </h1>
+        <p class="text-charcoal text-lg leading-relaxed fade-in fade-in-delay-2">
+          One of the things our clients tell us they value most is continuity. The team you meet today is, in most cases, the same team that will be working with you five years from now. Here's who we are.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+        {team.map((member, i) => (
+          <div class="fade-in" style={`transition-delay: ${(i % 3) * 0.1}s`}>
+            <div class="aspect-[4/5] mb-5 overflow-hidden rounded-lg bg-cream-warm flex items-center justify-center">
+              {member.photo ? (
+                <img src={member.photo} alt={member.name} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-navy">
+                  <span class="text-cream font-serif text-6xl font-semibold">{initials(member.name)}</span>
+                </div>
+              )}
+            </div>
+            <h3 class="text-xl font-serif text-navy mb-1">
+              {member.name}{member.credentials && <span class="text-charcoal-muted text-base font-sans">, {member.credentials}</span>}
+            </h3>
+            <p class="text-forest text-sm font-semibold uppercase tracking-wider mb-3">{member.title}</p>
+            <p class="text-charcoal-muted text-sm leading-relaxed">{member.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream-warm py-20 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center fade-in">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy mb-6">
+          Want to put a name to a number?
+        </h2>
+        <p class="text-charcoal text-base leading-relaxed mb-10">
+          Schedule a free consultation. The first conversation is with a partner — no gatekeepers, no junior intake.
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-forest text-cream font-semibold px-10 py-4 rounded hover:bg-forest-hover transition-colors"
+        >
+          Schedule a Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

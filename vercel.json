@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/index.htm", "destination": "/", "permanent": true },
+    { "source": "/about-us.htm", "destination": "/about", "permanent": true },
+    { "source": "/our-team.htm", "destination": "/team", "permanent": true },
+    { "source": "/contact.htm", "destination": "/contact", "permanent": true },
+    { "source": "/consultation.htm", "destination": "/contact", "permanent": true },
+    { "source": "/privacy.htm", "destination": "/privacy", "permanent": true },
+    { "source": "/small-business-accounting-services.htm", "destination": "/services#small-business", "permanent": true },
+    { "source": "/outsourced-accounting-and-bookkeeping.htm", "destination": "/services#accounting", "permanent": true },
+    { "source": "/business-incorporation-services.htm", "destination": "/services#incorporation", "permanent": true },
+    { "source": "/outsourced-cfo-services.htm", "destination": "/services#cfo", "permanent": true },
+    { "source": "/industries-we-serve.htm", "destination": "/industries", "permanent": true },
+    { "source": "/entertainment-accounting.htm", "destination": "/industries/entertainment", "permanent": true },
+    { "source": "/medical-practice-accounting.htm", "destination": "/industries/medical", "permanent": true },
+    { "source": "/real-estate-accounting-services.htm", "destination": "/industries/real-estate", "permanent": true }
+  ]
+}
