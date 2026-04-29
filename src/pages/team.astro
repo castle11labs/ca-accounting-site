@@ -21,70 +21,70 @@ const team = [
   {
     name: 'Shirin Nosrat',
     credentials: '',
-    title: 'Client Services',
+    title: '',
     photo: '/images/team/shirin.jpg',
     bio: '',
   },
   {
     name: 'Tess Bidwell',
     credentials: '',
-    title: 'Accounting Team',
+    title: '',
     photo: '/images/team/tess.jpg',
     bio: '',
   },
   {
     name: 'Megan Foroodi',
     credentials: '',
-    title: 'Client Services',
+    title: '',
     photo: '/images/team/megan.jpg',
     bio: '',
   },
   {
     name: 'Aileen May Hoffman',
     credentials: '',
-    title: 'Accounting Team',
+    title: '',
     photo: '/images/team/aileen.jpg',
     bio: '',
   },
   {
     name: 'Nara Khachatryan',
     credentials: '',
-    title: 'Tax Team',
+    title: '',
     photo: '/images/team/nara.jpg',
     bio: '',
   },
   {
     name: 'Sara Khosravi',
     credentials: '',
-    title: 'Client Services',
+    title: '',
     photo: '/images/team/sara.jpg',
     bio: '',
   },
   {
     name: 'Florence Magaoay-Estigoy',
     credentials: '',
-    title: 'Accounting Team',
+    title: '',
     photo: '/images/team/flo.jpg',
     bio: '',
   },
   {
     name: 'Lusine Muradyan',
     credentials: '',
-    title: 'Client Services',
+    title: '',
     photo: '/images/team/lusine.jpg',
     bio: '',
   },
   {
     name: 'Loreta Sarian',
     credentials: '',
-    title: 'Accounting Team',
+    title: '',
     photo: null,
     bio: '',
   },
   {
     name: 'Rima Aghazarian',
     credentials: '',
-    title: 'Tax Team',
+    title: '',
     photo: null,
     bio: '',
   },
@@ -128,7 +128,7 @@ const initials = (name: string) => name.split(' ').map((n) => n[0]).join('').sli
             <h3 class="text-xl font-serif text-navy mb-1">
               {member.name}{member.credentials && <span class="text-charcoal-muted text-base font-sans">, {member.credentials}</span>}
             </h3>
-            <p class="text-forest text-sm font-semibold uppercase tracking-wider mb-3">{member.title}</p>
+            {member.title && <p class="text-forest text-sm font-semibold uppercase tracking-wider mb-3">{member.title}</p>}
             {member.bio && <p class="text-charcoal-muted text-sm leading-relaxed">{member.bio}</p>}
           </div>
         ))}
