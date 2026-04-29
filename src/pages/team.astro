@@ -15,7 +15,7 @@ const team = [
     credentials: 'CPA',
     title: 'Managing Partner',
     photo: '/images/team/narek.jpg',
-    bio: "Narek is the managing partner of CA Accounting and a Certified Public Accountant licensed in California.",
+    bio: "Narek is the managing partner of CA Accounting and a Certified Public Accountant.",
     featured: true,
   },
   {
@@ -111,12 +111,14 @@ const initials = (name: string) => name.split(' ').map((n) => n[0]).join('').sli
     </div>
   </section>
 
+  <!-- Partners -->
   <section class="py-20 md:py-24">
     <div class="container-custom">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
-        {team.map((member, i) => (
-          <div class="fade-in" style={`transition-delay: ${(i % 3) * 0.1}s`}>
-            <div class="aspect-[4/5] mb-5 overflow-hidden rounded-lg bg-cream-warm flex items-center justify-center">
+      <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-8 fade-in">Partners</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {team.filter((m) => m.featured).map((member, i) => (
+          <div class="fade-in" style={`transition-delay: ${i * 0.1}s`}>
+            <div class="aspect-[4/5] mb-6 overflow-hidden rounded-lg bg-cream-warm flex items-center justify-center">
               {member.photo ? (
                 <img src={member.photo} alt={member.name} class="w-full h-full object-cover" loading="lazy" />
               ) : (
@@ -125,11 +127,37 @@ const initials = (name: string) => name.split(' ').map((n) => n[0]).join('').sli
                 </div>
               )}
             </div>
-            <h3 class="text-xl font-serif text-navy mb-1">
-              {member.name}{member.credentials && <span class="text-charcoal-muted text-base font-sans">, {member.credentials}</span>}
+            <h3 class="text-2xl font-serif text-navy mb-1">
+              {member.name}{member.credentials && <span class="text-charcoal-muted text-lg font-sans">, {member.credentials}</span>}
             </h3>
             {member.title && <p class="text-forest text-sm font-semibold uppercase tracking-wider mb-3">{member.title}</p>}
             {member.bio && <p class="text-charcoal-muted text-sm leading-relaxed">{member.bio}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-cream-warm py-20 md:py-24 border-t border-line">
+    <div class="container-custom">
+      <p class="text-forest font-semibold text-sm uppercase tracking-widest mb-8 fade-in">Team</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+        {team.filter((m) => !m.featured).map((member, i) => (
+          <div class="fade-in" style={`transition-delay: ${(i % 4) * 0.05}s`}>
+            <div class="aspect-[4/5] mb-4 overflow-hidden rounded-lg bg-cream flex items-center justify-center">
+              {member.photo ? (
+                <img src={member.photo} alt={member.name} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-navy">
+                  <span class="text-cream font-serif text-5xl font-semibold">{initials(member.name)}</span>
+                </div>
+              )}
+            </div>
+            <h3 class="text-base font-serif text-navy mb-1">
+              {member.name}{member.credentials && <span class="text-charcoal-muted text-sm font-sans">, {member.credentials}</span>}
+            </h3>
+            {member.title && <p class="text-forest text-xs font-semibold uppercase tracking-wider">{member.title}</p>}
           </div>
         ))}
       </div>
