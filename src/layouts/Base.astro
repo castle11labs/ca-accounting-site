@@ -46,7 +46,7 @@ const isActive = (href: string) => {
         basic: {
           title: title,
           type: 'website',
-          image: new URL('/og-image.png', Astro.site || Astro.url.origin).href,
+          image: new URL('/og-image.png', Astro.url.origin).href,
         },
         optional: {
           description: description,

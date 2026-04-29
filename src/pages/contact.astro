@@ -4,23 +4,23 @@ import Base from '../layouts/Base.astro';
 const faq = [
   {
     q: "How quickly do you respond to new inquiries?",
-    a: "Within one business day. If your matter is urgent, calling is faster than email — we have someone at the front desk during business hours.",
+    a: "Within one business day. If your matter is urgent, calling is faster than email. We have someone at the front desk during business hours.",
   },
   {
     q: "Do you take new clients year-round, or only at tax time?",
-    a: "Year-round. In fact, we prefer to onboard clients outside of tax season so we can take time to understand the business properly. Mid-year is often the best time to make a switch.",
-  },
-  {
-    q: "Do you work with clients outside California?",
-    a: "Yes. We have clients across multiple states. Most work happens remotely with periodic in-person meetings as needed. Multi-state filings are part of our regular practice.",
+    a: "Year-round. We prefer to onboard clients outside of tax season so we can take time to understand the business properly. Mid-year is often the best time to make a switch.",
   },
   {
     q: "What does the first conversation cover?",
-    a: "About 30 minutes. We will listen to where you are, ask about your business and goals, and tell you whether we are the right firm — and what an engagement would look like if we are. No pressure, no pitch deck.",
+    a: "About 30 minutes. We will listen to where you are, ask about your business and goals, and tell you whether we are the right firm. No pressure, no pitch deck.",
+  },
+  {
+    q: "Where are your clients based?",
+    a: "Our practice is based in California, and we work primarily with businesses and individuals throughout the state. We handle multi-state federal tax filings for California clients whose income or operations cross state lines.",
   },
   {
     q: "What information should I bring to a first meeting?",
-    a: "For a first conversation, nothing required. If you would like a more substantive review, last year's tax return, your current bookkeeping file, and a recent P&L give us plenty to work with.",
+    a: "For a first conversation, nothing required. If you would like a more substantive review, last year's tax return, your current bookkeeping file, and a recent profit and loss statement give us plenty to work with.",
   },
 ];
 
@@ -51,7 +51,7 @@ const faqSchema = {
           Let's talk.
         </h1>
         <p class="text-charcoal text-lg leading-relaxed fade-in fade-in-delay-2">
-          The first conversation is free. Send us a message or call directly — we respond within one business day, and the first call is with a partner.
+          The first conversation is free. Send us a message or call directly. We respond within one business day.
         </p>
       </div>
     </div>
@@ -83,7 +83,7 @@ const faqSchema = {
                   name="name"
                   required
                   autocomplete="name"
-                  class="w-full bg-white border border-line rounded px-4 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest transition-colors"
+                  class="w-full bg-white border border-line rounded-full px-5 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest/10 transition-all"
                   placeholder="Your full name"
                 />
               </div>
@@ -98,7 +98,7 @@ const faqSchema = {
                   name="phone"
                   required
                   autocomplete="tel"
-                  class="w-full bg-white border border-line rounded px-4 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest transition-colors"
+                  class="w-full bg-white border border-line rounded-full px-5 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest/10 transition-all"
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -114,7 +114,7 @@ const faqSchema = {
                 id="business"
                 name="business"
                 autocomplete="organization"
-                class="w-full bg-white border border-line rounded px-4 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest transition-colors"
+                class="w-full bg-white border border-line rounded-full px-5 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest/10 transition-all"
                 placeholder="Your company"
               />
             </div>
@@ -126,7 +126,7 @@ const faqSchema = {
               <select
                 id="service"
                 name="service"
-                class="w-full bg-white border border-line rounded px-4 py-3 text-charcoal text-sm focus:outline-none focus:border-forest transition-colors"
+                class="w-full bg-white border border-line rounded-full px-5 py-3 text-charcoal text-sm focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest/10 transition-all"
               >
                 <option value="">Select a service</option>
                 <option value="tax">Tax preparation or planning</option>
@@ -148,14 +148,14 @@ const faqSchema = {
                 id="message"
                 name="message"
                 rows="5"
-                class="w-full bg-white border border-line rounded px-4 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest transition-colors resize-y"
+                class="w-full bg-white border border-line rounded-2xl px-5 py-3 text-charcoal text-sm placeholder-charcoal-muted/50 focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest/10 transition-all resize-y"
                 placeholder="A few sentences about your business and what you're looking for"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              class="btn-modern w-full sm:w-auto bg-forest text-cream font-semibold px-10 py-4 rounded hover:bg-forest-hover transition-colors"
+              class="btn-modern w-full sm:w-auto bg-forest text-cream font-semibold px-10 py-4 rounded-full hover:bg-forest-hover transition-colors"
             >
               Send Message
             </button>
@@ -253,40 +253,12 @@ const faqSchema = {
         </div>
 
         <div class="space-y-8">
-          <div class="border-b border-line pb-6 fade-in">
-            <h3 class="text-lg font-serif text-navy mb-2">How quickly do you respond to new inquiries?</h3>
-            <p class="text-charcoal-muted text-base leading-relaxed">
-              Within one business day. If your matter is urgent, calling is faster than email — we have someone at the front desk during business hours.
-            </p>
-          </div>
-
-          <div class="border-b border-line pb-6 fade-in fade-in-delay-1">
-            <h3 class="text-lg font-serif text-navy mb-2">Do you take new clients year-round, or only at tax time?</h3>
-            <p class="text-charcoal-muted text-base leading-relaxed">
-              Year-round. In fact, we prefer to onboard clients outside of tax season so we can take time to understand the business properly. Mid-year is often the best time to make a switch.
-            </p>
-          </div>
-
-          <div class="border-b border-line pb-6 fade-in">
-            <h3 class="text-lg font-serif text-navy mb-2">Do you work with clients outside California?</h3>
-            <p class="text-charcoal-muted text-base leading-relaxed">
-              Yes. We have clients across multiple states. Most work happens remotely with periodic in-person meetings as needed. Multi-state filings are part of our regular practice.
-            </p>
-          </div>
-
-          <div class="border-b border-line pb-6 fade-in fade-in-delay-1">
-            <h3 class="text-lg font-serif text-navy mb-2">What does the first conversation cover?</h3>
-            <p class="text-charcoal-muted text-base leading-relaxed">
-              About 30 minutes. We will listen to where you are, ask about your business and goals, and tell you whether we are the right firm — and what an engagement would look like if we are. No pressure, no pitch deck.
-            </p>
-          </div>
-
-          <div class="pb-6 fade-in">
-            <h3 class="text-lg font-serif text-navy mb-2">What information should I bring to a first meeting?</h3>
-            <p class="text-charcoal-muted text-base leading-relaxed">
-              For a first conversation, nothing required. If you would like a more substantive review, last year's tax return, your current bookkeeping file, and a recent P&L give us plenty to work with.
-            </p>
-          </div>
+          {faq.map((item, i) => (
+            <div class:list={["pb-6 fade-in", i < faq.length - 1 && "border-b border-line"]}>
+              <h3 class="text-lg font-serif text-navy mb-2">{item.q}</h3>
+              <p class="text-charcoal-muted text-base leading-relaxed">{item.a}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
