@@ -1,11 +1,48 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const faq = [
+  {
+    q: "How quickly do you respond to new inquiries?",
+    a: "Within one business day. If your matter is urgent, calling is faster than email — we have someone at the front desk during business hours.",
+  },
+  {
+    q: "Do you take new clients year-round, or only at tax time?",
+    a: "Year-round. In fact, we prefer to onboard clients outside of tax season so we can take time to understand the business properly. Mid-year is often the best time to make a switch.",
+  },
+  {
+    q: "Do you work with clients outside California?",
+    a: "Yes. We have clients across multiple states. Most work happens remotely with periodic in-person meetings as needed. Multi-state filings are part of our regular practice.",
+  },
+  {
+    q: "What does the first conversation cover?",
+    a: "About 30 minutes. We will listen to where you are, ask about your business and goals, and tell you whether we are the right firm — and what an engagement would look like if we are. No pressure, no pitch deck.",
+  },
+  {
+    q: "What information should I bring to a first meeting?",
+    a: "For a first conversation, nothing required. If you would like a more substantive review, last year's tax return, your current bookkeeping file, and a recent P&L give us plenty to work with.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a,
+    },
+  })),
+};
 ---
 
 <Base
   title="Contact — CA Accounting | Schedule a Free Consultation"
   description="Schedule a free consultation with CA Accounting. Visit our Glendale office, call 877.500.9290, or send us a message. We respond within one business day."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="bg-cream-warm py-20 md:py-24">
     <div class="container-custom">
       <div class="max-w-3xl">
@@ -168,10 +205,10 @@ import Base from '../layouts/Base.astro';
             <div class="pt-6 border-t border-line">
               <p class="text-charcoal-muted text-xs uppercase tracking-widest font-semibold mb-3">Existing Clients</p>
               <div class="flex flex-col gap-2">
-                <a href="https://protectedxchange.com" target="_blank" rel="noopener" class="text-forest text-sm font-medium hover:text-forest-hover transition-colors">
+                <a href="https://protectedxchange.com" target="_blank" rel="noopener noreferrer" class="text-forest text-sm font-medium hover:text-forest-hover transition-colors">
                   → Send a Secure File
                 </a>
-                <a href="https://portal.bizpayo.com" target="_blank" rel="noopener" class="text-forest text-sm font-medium hover:text-forest-hover transition-colors">
+                <a href="https://portal.bizpayo.com" target="_blank" rel="noopener noreferrer" class="text-forest text-sm font-medium hover:text-forest-hover transition-colors">
                   → Make a Payment
                 </a>
               </div>
@@ -188,20 +225,20 @@ import Base from '../layouts/Base.astro';
       <div class="max-w-3xl mx-auto text-center mb-10 fade-in">
         <h2 class="text-3xl md:text-4xl font-serif text-navy mb-4">Visit our Glendale office</h2>
         <p class="text-charcoal text-base">
-          We're on West Glenoaks Boulevard, near the corner of Glendale Avenue. Free parking on site.
+          300 W Glenoaks Blvd, Suite 101, Glendale, CA 91202.
         </p>
       </div>
 
       <div class="aspect-[16/9] max-w-4xl mx-auto rounded-lg overflow-hidden border border-line fade-in fade-in-delay-1">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3299.0!2d-118.2566!3d34.1592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzAwIFcgR2xlbm9ha3MgQmx2ZCAjMTAxLCBHbGVuZGFsZSwgQ0EgOTEyMDI!5e0!3m2!1sen!2sus!4v1700000000000"
+          src="https://www.google.com/maps?q=300+W+Glenoaks+Blvd+Suite+101+Glendale+CA+91202&output=embed"
           width="100%"
           height="100%"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="CA Accounting office location"
+          title="CA Accounting — 300 W Glenoaks Blvd, Glendale, CA 91202"
         ></iframe>
       </div>
     </div>
@@ -240,14 +277,14 @@ import Base from '../layouts/Base.astro';
           <div class="border-b border-line pb-6 fade-in fade-in-delay-1">
             <h3 class="text-lg font-serif text-navy mb-2">What does the first conversation cover?</h3>
             <p class="text-charcoal-muted text-base leading-relaxed">
-              About 30 minutes. We'll listen to where you are, ask about your business and goals, and tell you whether we're the right firm — and what an engagement would look like if we are. No pressure, no pitch deck.
+              About 30 minutes. We will listen to where you are, ask about your business and goals, and tell you whether we are the right firm — and what an engagement would look like if we are. No pressure, no pitch deck.
             </p>
           </div>
 
           <div class="pb-6 fade-in">
             <h3 class="text-lg font-serif text-navy mb-2">What information should I bring to a first meeting?</h3>
             <p class="text-charcoal-muted text-base leading-relaxed">
-              For a first conversation, nothing required. If you'd like a more substantive review, last year's tax return, your current bookkeeping file, and a recent P&L give us plenty to work with.
+              For a first conversation, nothing required. If you would like a more substantive review, last year's tax return, your current bookkeeping file, and a recent P&L give us plenty to work with.
             </p>
           </div>
         </div>

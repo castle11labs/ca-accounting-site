@@ -23,70 +23,70 @@ const team = [
     credentials: '',
     title: 'Client Services',
     photo: '/images/team/shirin.jpg',
-    bio: "Shirin supports clients across the firm's accounting and tax engagements, with a focus on responsiveness, accuracy, and helping business owners stay informed about their numbers.",
+    bio: '',
   },
   {
     name: 'Tess Bidwell',
     credentials: '',
     title: 'Accounting Team',
     photo: '/images/team/tess.jpg',
-    bio: "Tess works on the firm's bookkeeping and financial reporting engagements, helping clients keep clean books and ready-to-file year-end records.",
+    bio: '',
   },
   {
     name: 'Megan Foroodi',
     credentials: '',
     title: 'Client Services',
     photo: '/images/team/megan.jpg',
-    bio: "Megan supports clients across tax preparation and bookkeeping, with an emphasis on clear communication and timely turnaround.",
+    bio: '',
   },
   {
     name: 'Aileen May Hoffman',
     credentials: '',
     title: 'Accounting Team',
     photo: '/images/team/aileen.jpg',
-    bio: "Aileen works on the firm's monthly bookkeeping and payroll engagements, ensuring transactions are coded correctly and reports are issued on time.",
+    bio: '',
   },
   {
     name: 'Nara Khachatryan',
     credentials: '',
     title: 'Tax Team',
     photo: '/images/team/nara.jpg',
-    bio: "Nara works on the firm's individual and business tax preparation, with a focus on accurate filings and identifying planning opportunities for clients.",
+    bio: '',
   },
   {
     name: 'Sara Khosravi',
     credentials: '',
     title: 'Client Services',
     photo: '/images/team/sara.jpg',
-    bio: "Sara is part of the client services team, helping coordinate engagements and supporting clients throughout the year — not just at filing season.",
+    bio: '',
   },
   {
     name: 'Florence Magaoay-Estigoy',
     credentials: '',
     title: 'Accounting Team',
     photo: '/images/team/flo.jpg',
-    bio: "Florence works on the firm's bookkeeping and financial statement engagements, with a focus on accurate reconciliations and clean monthly closes.",
+    bio: '',
   },
   {
     name: 'Lusine Muradyan',
     credentials: '',
     title: 'Client Services',
     photo: '/images/team/lusine.jpg',
-    bio: "Lusine supports the firm's client engagements across accounting and tax, helping ensure deliverables are accurate, timely, and well-organized.",
+    bio: '',
   },
   {
     name: 'Loreta Sarian',
     credentials: '',
     title: 'Accounting Team',
     photo: null,
-    bio: "Loreta works on the firm's bookkeeping and accounting engagements, supporting clients with day-to-day financial recordkeeping and reporting.",
+    bio: '',
   },
   {
     name: 'Rima Aghazarian',
     credentials: '',
     title: 'Tax Team',
     photo: null,
-    bio: "Rima works on the firm's tax engagements, with attention to compliance accuracy and helping clients understand their filings.",
+    bio: '',
   },
 ];
 
@@ -129,7 +129,7 @@ const initials = (name: string) => name.split(' ').map((n) => n[0]).join('').sli
               {member.name}{member.credentials && <span class="text-charcoal-muted text-base font-sans">, {member.credentials}</span>}
             </h3>
             <p class="text-forest text-sm font-semibold uppercase tracking-wider mb-3">{member.title}</p>
-            <p class="text-charcoal-muted text-sm leading-relaxed">{member.bio}</p>
+            {member.bio && <p class="text-charcoal-muted text-sm leading-relaxed">{member.bio}</p>}
           </div>
         ))}
       </div>
